@@ -4,7 +4,7 @@ Manim's plugins site, simple app with js.
 
 ## Adding a Plugin
 
-Their is a Github Actions set up to run daily which will automatically add you plugin if it starts with matches this RegEx `<(.*)>manim-(?P<name>.*)<(.*)>`. If your plugin doesn't match this RegEx, then you can make a PR adding your plugin name as how it is PyPI, to `scripts/default.json` under `extras` section.
+There is a Github Actions set up to run daily which will automatically add your plugin to the website if it matches with this RegEx `<(.*)>manim-(?P<name>.*)<(.*)>`. If your plugin doesn't match this RegEx, then you can make a PR adding your plugin's name (as listed on PyPI) to `scripts/default.json` under the `extras` section.
 
 # Code of Conduct
 
