@@ -7,20 +7,23 @@ on:
   - cron: '0 0 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build Files
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
           persist-credentials: false
     - name: Use Node.js 12.x
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: 12.x
     - name: Setup Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: '3.8'
     - name: Install Dependencies
@@ -35,7 +38,7 @@ jobs:
         npm install
         npm run build
     - name: Upload Artifacts 🔺
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
           name: dist
           path: dist
@@ -45,19 +48,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
 
       - name: Download Artifacts 🔻 # The built project is downloaded into the 'site' folder.
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4
         with:
           name: dist
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-            GITHUB_TOKEN : ${{ secrets.TOKEN_PUSH }} # set TOKEN_PUSH in secrets
-            BRANCH: deploy
-            FOLDER: dist
-            SINGLE_COMMIT: true
-
+            branch: deploy
+            folder: dist
+            single-commit: true
