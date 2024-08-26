@@ -57,8 +57,8 @@ jobs:
         with:
           name: dist
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-            branch: deploy
-            folder: dist
-            single-commit: true
+            BRANCH: deploy
+            FOLDER: dist
+            SINGLE_COMMIT: true
