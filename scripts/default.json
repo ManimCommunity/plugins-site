@@ -1,6 +1,8 @@
 {
     "extras": [
-        "chanim"
+        "chanim",
+        "statanim",
+        "llmanim"
     ],
     "exclude": [
         "manim-ext",
