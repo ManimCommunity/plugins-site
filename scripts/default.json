@@ -2,7 +2,8 @@
     "extras": [
         "chanim",
         "statanim",
-        "llmanim"
+        "llmanim",
+        "qual-manim"
     ],
     "exclude": [
         "manim-ext",
